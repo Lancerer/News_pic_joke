@@ -10,18 +10,25 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.lancer.mvp_news.R;
 import com.example.lancer.mvp_news.activity.RobatAdapter;
+import com.example.lancer.mvp_news.api.pe_imp;
 import com.example.lancer.mvp_news.bean.RobatBean;
+import com.example.lancer.mvp_news.utils.httputil;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class RobatFragment extends Fragment {
@@ -62,7 +69,6 @@ public class RobatFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
@@ -71,10 +77,11 @@ public class RobatFragment extends Fragment {
                     //todo 弹出popview
                     ivRobatPlus.setImageResource(R.drawable.circle_plus);
                 } else if (!TextUtils.isEmpty(etRobat.getText().toString())) {
-                   // ivRobatPlus.setImageResource(R.drawable.send);
+                    ivRobatPlus.setImageResource(R.drawable.send);
                     ivRobatPlus.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            request();
                             RobatBean robatBean = new RobatBean(msg, RobatBean.SEND);
                             list.add(robatBean);
                             adapter.notifyDataSetChanged();
@@ -84,7 +91,47 @@ public class RobatFragment extends Fragment {
                 }
             }
         });
+        list = new ArrayList<>();
         adapter = new RobatAdapter(list, getContext());
+        lvRobat.setAdapter(adapter);
+        lvRobat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+    }
+
+    //访问网络方法
+    private void request() {
+        httputil httpUtil = new httputil();
+        pe_imp request = httpUtil.getRequest(BaseUrl);
+        msg = etRobat.getText().toString().trim();
+        url = "openapi/api?key=d1525b710de1405380f7d554006bac36&info=" + msg;
+        request.getRobat(url).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<RobatBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(RobatBean value) {
+                        RobatBean robatBean = new RobatBean(value.getText(), RobatBean.RECIVER);
+                        list.add(robatBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     @Override

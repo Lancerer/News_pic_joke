@@ -2,6 +2,7 @@ package com.example.lancer.mvp_news.fragment;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -89,7 +90,6 @@ public class NewFragment extends BaseFragment implements TabLayout.OnTabSelected
         fragments.add(soldierFragment);
         fragments.add(driveFragment);
     }
-
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         //TabLayout里的TabItem被选中的时候触发

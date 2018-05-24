@@ -6,11 +6,13 @@ import com.example.lancer.mvp_news.bean.HappyBean;
 import com.example.lancer.mvp_news.bean.ITBean;
 import com.example.lancer.mvp_news.bean.JokeBean;
 import com.example.lancer.mvp_news.bean.PeBean;
+import com.example.lancer.mvp_news.bean.RobatBean;
 import com.example.lancer.mvp_news.bean.SoldierBean;
 import com.example.lancer.mvp_news.bean.picBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Url;
 
 
 public interface pe_imp {
@@ -37,4 +39,6 @@ public interface pe_imp {
 
     @GET("txapi/joke/?key=4e8309c39e4ddab74b0b3ac294030bc3&num=10")
     Observable<JokeBean> getJoke();
+    @GET
+    Observable<RobatBean> getRobat(@Url String url);
 }

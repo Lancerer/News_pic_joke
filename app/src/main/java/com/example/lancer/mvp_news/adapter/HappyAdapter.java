@@ -83,7 +83,6 @@ public class HappyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             return 0;
         }
     }
-
     //声明一个这个接口的变量
       private OnItemClickListener mOnItemClickListener = null;
 
@@ -100,7 +99,6 @@ public class HappyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mOnItemClickListener.onItemClick(v, (int) v.getTag());
         }
     }
-
     //最后暴露给外面的调用者，定义一个设置Listener的方法（）：
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.mOnItemClickListener = listener;
