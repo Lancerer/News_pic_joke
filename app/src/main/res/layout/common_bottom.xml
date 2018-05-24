@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_new"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/iv_new"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/news" />
+
+            <TextView
+                android:id="@+id/tv_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_pic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/iv_pic"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/pic" />
+
+            <TextView
+                android:id="@+id/tv_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pic"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_joke"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/iv_joke"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/smile" />
+
+            <TextView
+                android:id="@+id/tv_joke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="joke"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_robat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/iv_robat"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/pe" />
+
+            <TextView
+                android:id="@+id/tv_robat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="robat"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

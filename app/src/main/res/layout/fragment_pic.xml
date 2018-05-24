@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_pic"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#339CFF">
+
+    </android.support.v7.widget.Toolbar>
+    <com.example.lancer.mvp_news.View.ReflashListView
+        android:id="@+id/lv_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.example.lancer.mvp_news.View.ReflashListView>
+</LinearLayout>
