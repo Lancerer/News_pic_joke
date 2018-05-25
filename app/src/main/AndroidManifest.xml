@@ -6,6 +6,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".applaction.MyApp"
         android:icon="@drawable/news"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -16,7 +17,6 @@
             android:label="Lancer"
             android:logo="@drawable/news"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
         <activity
             android:name=".activity.WebActivity"

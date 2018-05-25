@@ -8,6 +8,8 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -32,8 +34,6 @@ import io.reactivex.schedulers.Schedulers;
 
 
 public class RobatFragment extends Fragment {
-
-
     @Bind(R.id.tool_robat)
     Toolbar toolRobat;
     @Bind(R.id.lv_robat)
@@ -56,7 +56,6 @@ public class RobatFragment extends Fragment {
         initData();
         return view;
     }
-
     private void initData() {
         toolRobat.setTitle("Robat");
         toolRobat.setLogo(R.drawable.plan);
@@ -64,13 +63,10 @@ public class RobatFragment extends Fragment {
         etRobat.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 if (TextUtils.isEmpty(etRobat.getText().toString())) {
@@ -97,11 +93,9 @@ public class RobatFragment extends Fragment {
         lvRobat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
             }
         });
     }
-
     //访问网络方法
     private void request() {
         httputil httpUtil = new httputil();
@@ -113,27 +107,20 @@ public class RobatFragment extends Fragment {
                 .subscribe(new Observer<RobatBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
                     }
-
                     @Override
                     public void onNext(RobatBean value) {
                         RobatBean robatBean = new RobatBean(value.getText(), RobatBean.RECIVER);
                         list.add(robatBean);
                     }
-
                     @Override
                     public void onError(Throwable e) {
-
                     }
-
                     @Override
                     public void onComplete() {
-
                     }
                 });
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
